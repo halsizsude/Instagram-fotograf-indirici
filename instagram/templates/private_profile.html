@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özel Profil İndirici</title>
+</head>
+<body>
+    <h1>Özel Profil İndirici</h1>
+    <p>{{ profile_name }} adlı kullanıcının gönderilerini indirmek için giriş yapın.</p>
+    <form action="/download_private" method="POST">
+        <input type="hidden" name="profile_name" value="{{ profile_name }}">
+        <label for="username">Kullanıcı Adı:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Şifre:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Giriş Yap ve İndir</button>
+    </form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>

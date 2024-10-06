@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Profil İndirici</title>
+</head>
+<body>
+    <h1>Instagram Profil İndirici</h1>
+    <form action="/download" method="POST">
+        <label for="profile_name">Kullanıcı adını girin:</label>
+        <input type="text" id="profile_name" name="profile_name" required>
+        <button type="submit">İndir</button>
+    </form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
